@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Route } from 'react-router-dom'
+import './App.css';
+import About from './components/about/about';
+import Adopt from './components/adopt/adopt';
+import BreedDetails from './components/breedDetails/breedDetails';
+import BreedForm from './components/breedForm/breedForm';
+import Footer from './components/footer/footer';
+import Header from './components/header/header';
+import Home from './components/home/home';
+import Landing from './components/landingPage/landing';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Header />
+      <Route path='/' exact component={Landing}/>
+      <Route path='/home' component={Home}/>
+      <Route path='/breed/:id' component={BreedDetails}/>
+      <Route path='/create' component={BreedForm}/>
+      <Route path='/adopt' component={Adopt}/>
+      <Route path='/about' component={About}/>
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
