@@ -48,7 +48,11 @@ const getTempe = async () => {
             const allTempe = [...tempeApi, ...tempeDb]
 
             return allTempe; 
-        }        
-    }
+        }
+            
+            
+    
+    
+}
 
 module.exports = getTempe;
