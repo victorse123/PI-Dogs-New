@@ -40,11 +40,11 @@ const dogsAPI = async  () => {
             })
 
             return allDogs
-        }else{throw new Error('Error al obtener la informacion')}
+        }else{throw new Error('Hubo un error al obtener la informacion')}
        
         }catch (error) {
         
-            throw new Error(`No se puede agregar... ${error}`)
+            throw new Error(`No se pudo agregar por ${error}`)
     }
 }
 
