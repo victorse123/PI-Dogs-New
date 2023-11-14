@@ -21,9 +21,8 @@
 
 // module.exports = getDogs;
 
-
 const dogsAPI = require("../handlers/dogsAPI");
-const dogsDB = require('../handlers/dogsDb');
+const dogsDB = require('../handlers/dogsDb')
 
 
 const getDogs = async () => {
@@ -35,7 +34,7 @@ const getDogs = async () => {
 
     if(allDogs.length > 0){
         return allDogs
-    }else{throw new Error('Hubo error al obtener la informacion')}
+    }else{throw new Error('Hubo un error al obtener la informacion')}
     
 }
 
