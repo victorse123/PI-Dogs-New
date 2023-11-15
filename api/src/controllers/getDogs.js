@@ -21,21 +21,21 @@
 
 // module.exports = getDogs;
 
-const dogsAPI = require("../handlers/dogsAPI");
-const dogsDB = require('../handlers/dogsDb')
+// const dogsAPI = require("../handlers/dogsAPI");
+// const dogsDB = require('../handlers/dogsDb')
 
 
-const getDogs = async () => {
+// const getDogs = async () => {
 
-    const dogsApi = await dogsAPI();
-    const dogsDb = await dogsDB()
+//     const dogsApi = await dogsAPI();
+//     const dogsDb = await dogsDB()
 
-    const allDogs = [...dogsApi, ...dogsDb]
+//     const allDogs = [...dogsApi, ...dogsDb]
 
-    if(allDogs.length > 0){
-        return allDogs
-    }else{throw new Error('Error al obtener la informacion')}
+//     if(allDogs.length > 0){
+//         return allDogs
+//     }else{throw new Error('Error al obtener la informacion')}
     
-}
+// }
 
-module.exports = getDogs;
+// module.exports = getDogs;

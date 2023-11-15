@@ -61,19 +61,19 @@
 // module.exports = getIdRaza;
 
 
-const getDogs = require('../controllers/getDogs')
+// const getDogs = require('../controllers/getDogs')
 
-const getIdRaza = async (idRaza) => {
+// const getIdRaza = async (idRaza) => {
        
-        const allDogs =  await getDogs()
+//         const allDogs =  await getDogs()
 
-        const dog = allDogs.filter((dog)=> dog.id == idRaza)
+//         const dog = allDogs.filter((dog)=> dog.id == idRaza)
 
-        if(dog){
+//         if(dog){
 
-            return dog;
+//             return dog;
             
-        }else { return 'No se encontro ese id'}
-}
+//         }else { return 'No se encontro ese id'}
+// }
 
-module.exports = getIdRaza;
+// module.exports = getIdRaza;

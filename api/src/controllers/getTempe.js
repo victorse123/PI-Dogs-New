@@ -27,32 +27,32 @@
 // module.exports = getTempe;
 
 
-const { Temperaments } = require('../db');
-const dogsAPI = require('../handlers/dogsAPI');
+// const { Temperaments } = require('../db');
+// const dogsAPI = require('../handlers/dogsAPI');
 
-const getTempe = async () => {
+// const getTempe = async () => {
     
-        const allDogs = await dogsAPI()
-        if (allDogs) {
+//         const allDogs = await dogsAPI()
+//         if (allDogs) {
             
-            const tempeApi = allDogs.flatMap((dog) => {
+//             const tempeApi = allDogs.flatMap((dog) => {
                 
-                if (dog.temperament) {
-                    return dog.temperament.flatMap((tempe) => (tempe ? tempe.split(',') : []));
-                } else {
-                    return ['No tiene temperamentos'];
-                }
-            });
-            const tempeDb = await Temperaments.findAll()
+//                 if (dog.temperament) {
+//                     return dog.temperament.flatMap((tempe) => (tempe ? tempe.split(',') : []));
+//                 } else {
+//                     return ['No tiene temperamentos'];
+//                 }
+//             });
+//             const tempeDb = await Temperaments.findAll()
 
-            const allTempe = [...tempeApi, ...tempeDb]
+//             const allTempe = [...tempeApi, ...tempeDb]
 
-            return allTempe; 
-        }
+//             return allTempe; 
+//         }
             
             
     
     
-}
+// }
 
-module.exports = getTempe;
+// module.exports = getTempe;

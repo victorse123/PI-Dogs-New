@@ -36,19 +36,19 @@
 
 // module.exports = dogsDB;
 
-const { Dog , Temperaments } = require('../db')
+// const { Dog , Temperaments } = require('../db')
 
-const dogsDB = async () => {
+// const dogsDB = async () => {
 
-    const allDogs = await Dog.findAll({
-        include: {
-            model: Temperaments,
-            attributes: ["name"],
-            through: { attributes: [] },
-          }
-    })
+//     const allDogs = await Dog.findAll({
+//         include: {
+//             model: Temperaments,
+//             attributes: ["name"],
+//             through: { attributes: [] },
+//           }
+//     })
 
-    return allDogs;
-}
+//     return allDogs;
+// }
 
-module.exports = dogsDB;
+// module.exports = dogsDB;

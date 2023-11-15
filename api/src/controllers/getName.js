@@ -45,22 +45,22 @@
 // module.exports = getName
 
 
-const getDogs = require('./getDogs');
+// const getDogs = require('./getDogs');
 
 
 
-const getName = async (name) => {
+// const getName = async (name) => {
     
-    const allDogs = await getDogs()
+//     const allDogs = await getDogs()
     
-    if(allDogs){
+//     if(allDogs){
         
-        const List = allDogs.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase()))
+//         const List = allDogs.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase()))
         
-        return List
-                }else{return `No se encontro a la raza ${name}`}
-            }
+//         return List
+//                 }else{return `No se encontro a la raza ${name}`}
+//             }
         
 
 
-module.exports = getName
+// module.exports = getName
