@@ -5,7 +5,7 @@ import BreedCard from "./breedCard/breedCard";
 import FilterBar from "./filterBar/filterBar";
 import { container } from './home.module.css'
 import Paginator from "./paginator/paginator";
-import { getAllBreeds } from '../../Redux/actions';
+import { getAllBreeds } from '../../Redux/actions/actions';
 
 
 const Home = () =>{
