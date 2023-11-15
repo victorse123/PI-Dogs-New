@@ -18,7 +18,7 @@ import {
     getBreedByName,
     sortBreedsByAz,
     sortBreedsByWeight
-} from "../../../actions";
+} from "../../../Redux/actions";
 
 const FilterBar = () =>{
     const dispatch = useDispatch();
