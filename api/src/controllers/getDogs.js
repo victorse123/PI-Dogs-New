@@ -34,7 +34,7 @@ const getDogs = async () => {
 
     if(allDogs.length > 0){
         return allDogs
-    }else{throw new Error('Hubo un error al obtener la informacion')}
+    }else{throw new Error('Error al obtener la informacion')}
     
 }
 
