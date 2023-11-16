@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import NoDog from "../noDog/noDog";
+import NoDog from "../NewDog/NewDog";
 import BreedCard from "./breedCard/breedCard";
 import FilterBar from "./filterBar/filterBar";
 import { container } from './home.module.css'

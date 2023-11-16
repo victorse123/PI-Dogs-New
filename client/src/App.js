@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import LandingPage from './Components/LandingPage/LandingPage';
+import LandingPage from './components/LandingPage/LandingPage';
 import Home from './Components/Home/Home';
 import NewDog from './Components/NewDog/NewDog';
 import Details from './Components/Details/Details';
