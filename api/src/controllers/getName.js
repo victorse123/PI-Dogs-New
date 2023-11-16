@@ -1,66 +1,45 @@
-// const axios = require('axios');
-// const { Sequelize } = require('sequelize');
-// require('dotenv').config();
-// const { API_KEY } = process.env;
-// const URL = `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`;
-// const { Dog } = require('../db')
+const axios = require('axios');
+const { Sequelize } = require('sequelize');
+require('dotenv').config();
+const { API_KEY } = process.env;
+const URL = `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`;
+const { Dog } = require('../db')
 
 
 
-// const getName = async (req, res) => {
-//     try {
+const getName = async (req, res) => {
+    try {
         
-//         const { name } = req.query;
+        const { name } = req.query;
         
 
-//         if(name){
+        if(name){
 
-//             const response = await axios.get(`${URL}`)
-//             if(response.data){
-//                 const apiList = response.data.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase()))
-//                 const dbList = await Dog.findAll({
+            const response = await axios.get(`${URL}`)
+            if(response.data){
+                const apiList = response.data.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase()))
+                const dbList = await Dog.findAll({
 
-//                     where:{
-//                         name:{
-//                             [Sequelize.Op.iLike]: `%${name}%`
+                    where:{
+                        name:{
+                            [Sequelize.Op.iLike]: `%${name}%`
 
-//                         }
-//                     }
-//                 })
+                        }
+                    }
+                })
                 
-//                 if (apiList.length > 0) {
-//                     const allDogs = [...apiList, ...dbList]
-//                     res.status(200).json(allDogs)
-//                 }
-//             }
-//             } else {
-//                 res.status(404).json({ message: 'No se encuentra esta raza' })
-//             }
-//     } catch (error) {
-//         res.status(500).json({ message: error })
-//     }
-// }
+                if (apiList.length > 0) {
+                    const allDogs = [...apiList, ...dbList]
+                    res.status(200).json(allDogs)
+                }
+            }
+            } else {
+                res.status(404).json({ message: 'No se encuentra esta raza' })
+            }
+    } catch (error) {
+        res.status(500).json({ message: error })
+    }
+}
 
 
-// module.exports = getName
-
-
-// const getDogs = require('./getDogs');
-
-
-
-// const getName = async (name) => {
-    
-//     const allDogs = await getDogs()
-    
-//     if(allDogs){
-        
-//         const List = allDogs.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase()))
-        
-//         return List
-//                 }else{return `No se encontro a la raza ${name}`}
-//             }
-        
-
-
-// module.exports = getName
+module.exports = getName

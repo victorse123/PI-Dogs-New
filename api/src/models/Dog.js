@@ -1,83 +1,50 @@
-const { DataTypes, Sequelize } = require('sequelize');
-const {conn} = require('../db')
-
-const Dog = conn.define('dog', {
-  id: {
-    type: DataTypes.INTEGER,
-    defaultValue: Sequelize.UUIDV4,
-    allowNull: false,
-    primaryKey: true,
-  },
-
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      len: [3,20]
+const { DataTypes } = require('sequelize');
+// Exportamos una funcion que define el modelo
+// Luego le injectamos la conexion a sequelize.
+module.exports = (sequelize) => {
+  // defino el modelo
+  sequelize.define('Dog', {
+    id:{
+      type: DataTypes.UUID,
+      allowNull: false,
+      primaryKey: true
+    },
+    name:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    height_min:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    weight_min:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    height_max:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    weight_max:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    life_span_min:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    life_span_max:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    image:{
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    createdInDB: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
-  },
-
-  imagen: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      isUrl: true,
-    }
-  },
-  origen: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  alturamin: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    validate: {
-      min: 15,
-      max: 100,
-    }
-  },
-
-  alturamax: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    validate: {
-      min: 15,
-      max: 100,
-    }
-  },
-  pesomin: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    validate: {
-      min: 5,
-      max: 80,
-    }
-  },
-  pesomax: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    validate: {
-      min: 5,
-      max: 80,
-    }
-  },
-  vidamin: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    validate: {
-      min: 2,
-      max: 35,
-    }
-  },
-  vidamax: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    validate: {
-      min: 2,
-      max: 35,
-    }
-  }
-})
-
-module.exports = { Dog }
+  });
+};
