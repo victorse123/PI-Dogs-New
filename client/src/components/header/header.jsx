@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
 import SearchBar from './SearchBar/SearchBar';
 import './Header.css';
-import menu from '../../images/menu.svg';
+import menu from '../../images/Menu.png';
 
 
 function Header() {

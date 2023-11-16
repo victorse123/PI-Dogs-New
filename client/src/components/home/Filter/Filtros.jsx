@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import FiltroTemperamento from "./FiltroTemperamento";
 import FiltroCreado from "./FiltroCreado";
 import './Filtros.css';
-import icon from '../../../images/icon_filtro.svg';
+import icon from '../../../images/Icon Filter.png';
 
 function Filtros({currentPage, setCurrentPage}) {
 

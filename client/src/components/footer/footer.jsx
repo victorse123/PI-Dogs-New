@@ -1,5 +1,5 @@
 import React from "react";
-import heart from '../../images/heart.svg';
+import heart from '../../images/Heart.png';
 import './Footer.css'
 
 function Footer() {

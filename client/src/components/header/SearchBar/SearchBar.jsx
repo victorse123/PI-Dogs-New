@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {searchDogs } from "../../../Redux/actions/actions";
-import search_icon from "../../../images/search-icon.svg";
+import search_icon from "../../../images/Search.png";
 import './SearchBar.css';
 import {Link } from "react-router-dom";
 

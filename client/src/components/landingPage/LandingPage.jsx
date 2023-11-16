@@ -7,7 +7,7 @@ import hero_desktop from "../../images/hero-desktop.png";
 import hero_desktop_responsive from "../../images/hero-desktop-responsive.png";
 import hero_mobile from "../../images/hero-mobile.png";
 // import hero_desktop_responsive from "../../images/hero-desktop-responsive.png";
-import arrow from "../../images/acc_arrow.svg";
+import arrow from "../../images/Arrow.png";
 // ----- icons -----
 import icon1 from "../../images/icons/dog.png";
 import icon2 from "../../images/icons/passport.png";
