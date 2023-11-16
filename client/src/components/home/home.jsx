@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import Header from '../Header/Header';
 import AllCards from './AllCards/AllCards';
 import ButtonCreateDog from './ButtonCreateDog/ButtonCreateDog';
-import Filtros from './Filtros/Filtros'
+import Filtros from './Filter/Filtros'
 import Footer from '../Footer/Footer';
 import { useDispatch } from 'react-redux';
 import { orderByName, orderByWeight } from '../../Redux/actions/actions';
-import './Home.css';
+import './home.module.css';
 
 function Home() {
 

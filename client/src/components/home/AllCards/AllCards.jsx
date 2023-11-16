@@ -4,7 +4,7 @@ import {getDogs} from '../../../Redux/actions/actions';
 import Card from "./Card/Card";
 import {Link} from 'react-router-dom';
 import Loader from '../Loader/Loader';
-import Pagination from '../Pagination/Pagination';
+import Pagination from '..//Pagination/Pagination';
 import './AllCards.css';
 
 function AllCards({currentPage, setCurrentPage, dogsPerPage, indexOfFirstDog, indexOfLastDog}) {
