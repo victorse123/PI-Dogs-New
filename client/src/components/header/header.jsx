@@ -1,25 +1,39 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from "react"
-import { Link, NavLink } from "react-router-dom";
-import { container, header, logoLink, linksCont, linkItem, active } from './header.module.css'
-import logo from '../../images/logo_dogkipidia_40.png'
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom'
+import SearchBar from './SearchBar/SearchBar';
+import './Header.css';
+import menu from '../../images/menu.svg';
 
-const Header = () =>{
-    return(
-        <header className={header}>
-            <div className={container}>
-                <div className={logoLink}>
-                    <Link to='/'><img src={logo} alt="" /></Link>
-                </div>
-                <div className={linksCont}>
-                    <NavLink to='/home' className={linkItem} activeClassName={active}>HOME</NavLink>
-                    <NavLink to={`/breed/${Math.floor(Math.random() * 170)+ 1}`} className={linkItem} activeClassName={active}>DOG OF THE DAY</NavLink>
-                    <NavLink to='/adopt' className={linkItem} activeClassName={active}>ADOPT</NavLink>
-                    <NavLink to='/about' className={linkItem} activeClassName={active}>ABOUT</NavLink>
-                </div>
-            </div>
-        </header>
-    );
+
+function Header() {
+
+  const [menuHo, setMenuHo] = useState(false)
+
+  function handleClick() {
+    setMenuHo(!menuHo)
+  }
+
+  return(
+    <div className="header">
+      <div className="header_cont">
+        <div className='div_responsive_header'>
+          <Link to="/home" className="logo"><h1 className="logo">DOGS</h1></Link>
+          <button className='button_header_menu' onClick={handleClick}>
+            <img className='menu' src={menu} alt="menu" />
+          </button>
+        </div>
+
+        <div className={menuHo  ? "menu_hiden active" : "menu_hiden"}>
+          <a href="https://github.com/villalb4/Dogs" target="_balck" className="about_responsive">GitHub</a>
+        </div>
+
+        <div className="nav">
+          <a href="https://github.com/villalb4/Dogs" target="_balck" className="about">GitHub</a>
+          <SearchBar />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Header;

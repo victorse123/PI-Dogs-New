@@ -1,49 +1,62 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import NoDog from "../NewDog/NewDog";
-import BreedCard from "./breedCard/breedCard";
-import FilterBar from "./filterBar/filterBar";
-import { container } from './home.module.css'
-import Paginator from "./paginator/paginator";
-import { getAllBreeds } from '../../Redux/actions/actions';
+import React, {useState} from 'react';
+import Header from '../Header/Header';
+import AllCards from './AllCards/AllCards';
+import ButtonCreateDog from './ButtonCreateDog/ButtonCreateDog';
+import Filtros from './Filtros/Filtros'
+import Footer from '../Footer/Footer';
+import { useDispatch } from 'react-redux';
+import { orderByName, orderByWeight } from '../../Redux/actions/actions';
+import './Home.css';
 
+function Home() {
 
-const Home = () =>{
-    const dispatch = useDispatch();
-    let dogBreeds = useSelector(state => state.results);
-    
-    const [ currentPage, setCurrentPage ] = useState(1);
-    const resultsPerPage = 8;
-    const resultsEnd = currentPage * resultsPerPage;// 22*8 = 176
-    const resultsStart = resultsEnd - resultsPerPage;//176-8 = 168
-    const results =  !dogBreeds.error ? dogBreeds.slice(resultsStart, resultsEnd): null
+  const dispatch = useDispatch();
 
-    useEffect(() =>{
-        dispatch(getAllBreeds());
-    }, [dispatch]);
+  function handleChange(e){
+    const value = e.target.value;
+    if(value === "name_asc" || value === "name_des") {
+      dispatch(orderByName(value))
+    } 
+    if(value === "peso_asc" || value === "peso_des") {
+      dispatch(orderByWeight(value))
+    }
+  }
 
-    const onPageSelect = page => setCurrentPage(page);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dogsPerPage] = useState(8);
 
-    return(
-        <>
-            <div className={container}>
-                <FilterBar/>
-                {
-                    dogBreeds.length > 0 && !dogBreeds.error ?
-                    results.map(b =>(
-                        // <h1>{b.temperament}</h1>
-                        <BreedCard key={b.id} breed={b} />
-                    )):
-                    <NoDog />
-                }
-                {
-                    !dogBreeds.error ?
-                    <Paginator onPageSelect={onPageSelect} currentPage={currentPage} numPages={Math.ceil(dogBreeds.length/8)} />
-                    : null
-                }
-            </div>
-        </>
-    );
+  const indexOfLastDog = currentPage * dogsPerPage;
+  const indexOfFirstDog = indexOfLastDog - dogsPerPage;
+  
+
+  return (
+    <div className="home">
+      <Header />
+      <div className='home_options'>
+        <ButtonCreateDog />
+        <div className='div_filtro_ordernamineto'>
+          <Filtros currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          <div className='div_ordernamiento'>
+            <span className='ordenar_text'>Ordernar por :</span>
+            <select className='select_ordernamiento' onChange={handleChange}>
+              <option className='option_name' value="name_asc">Nombre (asc)</option>
+              <option className='option_name' value="name_des">Nombre (des)</option>
+              <option className='option_name' value="peso_asc">Peso (asc)</option>
+              <option className='option_name' value="peso_des">Peso (des)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <AllCards 
+        currentPage={currentPage} 
+        setCurrentPage={setCurrentPage} 
+        dogsPerPage={dogsPerPage} 
+        indexOfFirstDog={indexOfFirstDog} 
+        indexOfLastDog={indexOfLastDog}
+      />
+      <Footer />
+    </div>
+  )
 }
 
 export default Home;

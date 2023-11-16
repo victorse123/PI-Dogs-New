@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { footerLine, footerText, footerCont, linkStyle } from './footer.module.css'
+import heart from '../../images/heart.svg';
+import './Footer.css'
 
-const Footer = () =>{
-    return(
-        <footer className={footerCont}>
-            <hr className={footerLine} />
-            <p className={footerText}>© 2022 Dogkipidia. Made with love by <Link to='/about' className={linkStyle}>Chris Luna</Link>.</p>
-        </footer>
-    );
+function Footer() {
+  return (
+    <div className="Footer_component">
+      <footer>
+        <span className="text_footer">PROYECTO INDIVIDUAL DEL BOOTCAMP</span>
+        <img className="heart_footer" src={heart} alt="heart" />
+      </footer>
+    </div>
+  )
 }
 
-export default Footer;
+export default Footer
