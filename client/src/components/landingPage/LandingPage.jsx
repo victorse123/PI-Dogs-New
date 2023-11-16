@@ -2,7 +2,7 @@
 import React from "react";
 import s from "./LandingPage.module.css";
 import {Link} from "react-router-dom";
-//import Footer from "../Footer/Footer";
+import Footer from "../Footer/Footer";
 import hero_desktop from "../../images/hero-desktop.png";
 import hero_desktop_responsive from "../../images/hero-desktop-responsive.png";
 import hero_mobile from "../../images/hero-mobile.png";
@@ -21,16 +21,16 @@ function LandingPage() {
       {/* --- header --- */}
       <header>
         <nav>
-          <span className={s.logo}>DOGS</span>
-          <Link to="/home" className={s.acceder}>Acceder</Link>
+          <span className={s.logo}>Dogs</span>
+          <Link to="/home" className={s.acceder}>Ingresar</Link>
         </nav>
       </header>
       {/* --- main --- */}
       <main>
         <div className={s.main_left}>
-          <h1 className={s.titulo}>Porque todos los días es un día del <span className={s.titulo_perro}>Perro</span></h1>
-          <p className={s.sub_titulo}>Tu mejor amigo te conoce mejor que nadie, tu lo conoces a el? averígualo con la mejor app sobre nuestros peludos favoritos.</p>
-          <Link to="/home" className={s.acceder_grande}>Acceder<img className={s.arrow} src={arrow} alt="arrow" /></Link>
+          <h1 className={s.titulo}>No hace falta una excusa para querer un <span className={s.titulo_perro}>Perro</span></h1>
+          <p className={s.sub_titulo}>Una app creada para conocer aspectos importantes de nuestros cuadrupedos.</p>
+          <Link to="/home" className={s.acceder_grande}>Ingresar<img className={s.arrow} src={arrow} alt="arrow" /></Link>
         </div>
 
         <div className={s.main_right}>
