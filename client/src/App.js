@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
 import Home from './components/home/Home';
 import NewDog from './components/NewDog/NewDog';
-import Details from './Components/Details/Details';
+import Details from './/components/Details/Details';
 import './App.css';
 
 function App() {
