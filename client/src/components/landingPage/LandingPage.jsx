@@ -3,17 +3,17 @@ import React from "react";
 import s from "./LandingPage.module.css";
 import {Link} from "react-router-dom";
 import Footer from "../Footer/Footer";
-import hero_desktop from "../../images/hero-desktop.png";
+import Dogs from "../../images/hero-desktop.png";
 import hero_desktop_responsive from "../../images/hero-desktop-responsive.png";
 import hero_mobile from "../../images/hero-mobile.png";
 // import hero_desktop_responsive from "../../images/hero-desktop-responsive.png";
 import arrow from "../../images/Arrow.png";
 // ----- icons -----
-import icon1 from "../../images/icons/dog.png";
-import icon2 from "../../images/icons/passport.png";
-import icon3 from "../../images/icons/photo-shoot.png";
-import icon4 from "../../images/icons/earth.png";
-import icon5 from "../../images/icons/bagpack.png";
+import icon1 from "../../images/icons/Buscar.png";
+import icon2 from "../../images/icons/Filtro.png";
+import icon3 from "../../images/icons/Dog3.png";
+import icon4 from "../../images/icons/Huellas.png";
+import icon5 from "../../images/icons/Correa.png";
 
 function LandingPage() {
   return(
@@ -35,7 +35,7 @@ function LandingPage() {
 
         <div className={s.main_right}>
           <div className={s.div_hero}>
-            <img className={s.hero} src={hero_desktop} alt="hero" />
+            <img className={s.hero} src={Dogs} alt="Dogs" />
             <img className={s.hero_responsive} src={hero_desktop_responsive} alt="hero" />
             <img className={s.hero_mobile} src={hero_mobile} alt="hero" />
           </div>
@@ -45,27 +45,27 @@ function LandingPage() {
       <div className={s.div_functions}>
         <div className={s.funciones}>
           <img className={s.icon} src={icon1} alt="icon" />
-          <p className={s.funcion_desc}>Busca a tu  perro favorito</p>
+          <p className={s.funcion_desc}>Buscalo</p>
         </div>
 
         <div className={s.funciones}>
           <img className={s.icon} src={icon2} alt="icon" />
-          <p className={s.funcion_desc}>Filta por raza o temperamento</p>
+          <p className={s.funcion_desc}>Filtralo (raza o temperamento)</p>
         </div>
 
         <div className={s.funciones}>
           <img className={s.icon} src={icon3} alt="icon" />
-          <p className={s.funcion_desc}>Agrega un nuevo amigo</p>
+          <p className={s.funcion_desc}>Agregalo</p>
         </div>
 
         <div className={s.funciones}>
           <img className={s.icon} src={icon4} alt="icon" />
-          <p className={s.funcion_desc}>Razas de <br /> todo el mundo</p>
+          <p className={s.funcion_desc}>Perros <br /> por el mundo</p>
         </div>
 
         <div className={s.funciones}>
           <img className={s.icon} src={icon5} alt="icon" />
-          <p className={s.funcion_desc}>llevalos <br /> siempre contigo</p>
+          <p className={s.funcion_desc}>A donde tu vayas, llevalos</p>
         </div>
       </div>
       <Footer />

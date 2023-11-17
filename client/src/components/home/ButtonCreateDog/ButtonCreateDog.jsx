@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ButtonCreateDog.css';
-import dogButton from '../../../images/dog_create_button.png'
+import dogButton from '../../../images/Dog1.png'
 
 function ButtonCreateDog() {
   return (

@@ -1,6 +1,6 @@
 header {
     position: absolute;
-    width: 100%;
+    width: 90%;
   }
   nav {
     display: flex;
@@ -12,10 +12,10 @@ header {
   }
   .logo {
     font-family: 'Nunito';
-    font-size: 26px;
-    font-weight: 900;
+    font-size: 56px;
+    font-weight: 1000;
     letter-spacing: -1px;
-    color: var(--azul-oscuro);
+    color: var(--naranja);
   }
   .acceder {
     font-family: 'Montserrat';
@@ -62,7 +62,7 @@ header {
     font-family: 'Montserrat';
     font-size: 15px;
     font-weight: 600;
-    color: var(--gris-oscuro);
+    color: var(--naranja);
     letter-spacing: 0.5%;
     line-height: 20px;
     max-width: 285px;
@@ -77,7 +77,7 @@ header {
     font-weight: 700;
     text-decoration: none;
     color: var(--blanco);
-    background-color: var(--azul-oscuro);
+    background-color: var(--naranja);
     border: none;
     border-radius: 12px;
     max-width: 200px;
@@ -117,7 +117,7 @@ header {
     width: 140px;
     padding: 18px 0 22px;
     border-radius: 12px;
-    box-shadow: 0px 4px 27px 0px #0000001c;
+    box-shadow: 0px 4px 27px 0px #c2bebe1c;
     transition: all 0.3s ease;
   }
   .funciones:hover {
