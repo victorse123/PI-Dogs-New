@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import heart from '../../images/Heart.png';
 import './Footer.css'
 

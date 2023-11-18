@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import Header from '../Header/Header';
 import AllCards from './AllCards/AllCards';
 import ButtonCreateDog from './ButtonCreateDog/ButtonCreateDog';

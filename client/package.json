@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-react-refresh": "^0.4.4",
     "file-loader": "^6.2.0"
   }
 }

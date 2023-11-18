@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-undef */
-import React from "react";
+//import React from "react";
 import s from "./LandingPage.module.css";
 import {Link} from "react-router-dom";
 import Footer from "../Footer/Footer";

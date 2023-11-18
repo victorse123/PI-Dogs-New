@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import imageDogDefault from '../../../../images/image-dog-default.jpg'
 import './Card.css';
 

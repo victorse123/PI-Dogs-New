@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import banner from '../../../images/banner.jpg';
 import './DogDetail.css';
 

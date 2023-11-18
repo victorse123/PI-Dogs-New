@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import "./Pagination.module.css";
 
 function Pagination({dogsPerPage, totalPosts, paginate, currentPage, setCurrentPage}) {

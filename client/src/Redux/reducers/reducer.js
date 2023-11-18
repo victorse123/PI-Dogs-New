@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { GET_DOGS , GET_DETAILS , GET_TEMPERAMENT, DOG_POST ,FILTER_DOG, FILTER_CREATED, DOG_WANTED, ORDER_BY_NAME, ORDER_BY_WEIGHT} from "../actions/actions";
 
 const initialState = {
@@ -89,3 +90,89 @@ const rootReducer = (state = initialState, {type, payload}) => {
 };
 
 export default rootReducer;
+
+
+
+// import {
+//   GET_DOGS,
+//   GET_DETAILS,
+//   GET_TEMPERAMENT,
+//   DOG_POST,
+//   FILTER_DOG,
+//   FILTER_CREATED,
+//   DOG_WANTED,
+//   ORDER_BY_NAME,
+//   ORDER_BY_WEIGHT,
+// } from "../actions/actions";
+
+// const initialState = {
+//   dogs: [],
+//   allDogsFilter: [],
+//   details: [],
+//   temperaments: [],
+//   dogsHome: [],
+// };
+
+// const rootReducer = (state = initialState, { type, payload }) => {
+//   switch (type) {
+//     case GET_DOGS:
+//       return {
+//         ...state,
+//         dogs: payload,
+//         allDogsFilter: payload,
+//         dogsHome: payload,
+//       };
+//     case GET_DETAILS:
+//       return {
+//         ...state,
+//         details: payload,
+//       };
+//     case DOG_POST:
+//       return {
+//         ...state,
+//       };
+//     case GET_TEMPERAMENT:
+//       return {
+//         ...state,
+//         temperaments: payload,
+//       };
+//     case FILTER_DOG:
+//       const allDogs = state.allDogsFilter;
+//       const filteredDogs = payload === 'All' ? allDogs : allDogs.filter(e => e.temperament.includes(payload));
+//       return {
+//         ...state,
+//         dogs: filteredDogs,
+//       };
+//     case FILTER_CREATED:
+//       const createdDogsFilter = payload === 'creados' ? state.allDogsFilter.filter(d => d.creadoEnDB) : state.allDogsFilter.filter(d => !d.creadoEnDB);
+//       return {
+//         ...state,
+//         dogs: payload === "All" ? state.allDogsFilter : createdDogsFilter,
+//       };
+//     case DOG_WANTED:
+//       return {
+//         ...state,
+//         dogsHome: payload,
+//       };
+//     case ORDER_BY_NAME:
+//       const orderDogsByName = [...state.dogs].sort((a, b) => {
+//         return payload === 'name_asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+//       });
+//       return {
+//         ...state,
+//         dogs: orderDogsByName,
+//       };
+//     case ORDER_BY_WEIGHT:
+//       const orderDogsByWeight = [...state.dogs].sort((a, b) => {
+//         return payload === 'peso_asc' ? parseInt(a.weight_min) - parseInt(b.weight_min) : parseInt(b.weight_min) - parseInt(a.weight_min);
+//       });
+//       return {
+//         ...state,
+//         dogs: orderDogsByWeight,
+//       };
+//     default:
+//       return state;
+//   }
+// };
+
+// export default rootReducer;
