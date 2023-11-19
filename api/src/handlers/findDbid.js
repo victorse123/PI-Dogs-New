@@ -55,5 +55,4 @@ const findDBid = async (id, dogDetalle) => {
         throw new Error(`No se pudo agregar el perro a la base de datos: ${error.message}`);
     }
 };
-
 module.exports = findDBid;
