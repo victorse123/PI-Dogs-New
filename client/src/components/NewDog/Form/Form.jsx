@@ -1,20 +1,19 @@
-import {useState, useEffect} from 'react';
-import { useDispatch, useSelector} from 'react-redux';
-import {dogPost} from '../../../Redux/actions/actions';
-import { getTemperament } from '../../../Redux/actions/actions';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { dogPost, getTemperament } from '../../../Redux/actions/actions';
 import './Form.module.css';
 
-
-
+// Función para validar los campos del formulario
 function validar(input) {
-  //name
   let errors = {};
-  if(!input.name) {
-    errors.name = 'debes ponerle un nombre'
-  } else if(!/[A-Z]+$/i.test(input.name)) {
-    errors.name = 'solo puede contener letras'
-  } else if(parseInt(input.name.length) >= 25) {
-    errors.name= 'debe contener menos de 25 caracteres'
+
+  // Validación del nombre
+  if (!input.name) {
+    errors.name = '¡Debes ponerle un nombre!';
+  } else if (!/[A-Z]+$/i.test(input.name)) {
+    errors.name = 'El nombre solo puede contener letras';
+  } else if (parseInt(input.name.length) >= 25) {
+    errors.name = 'El nombre debe tener menos de 25 caracteres';
   }
   // /^[A-Z]+$/i
 
@@ -72,19 +71,16 @@ function validar(input) {
 
 
 function Form() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getTemperament()); // Obtener la lista de temperamentos
+  }, [dispatch]);
 
-  useEffect(()=> {
-    dispatch(getTemperament())
-  }, [dispatch])
+  const temperamentos = useSelector((state) => state.temperaments);
 
-  const temperamentos = useSelector(state => state.temperaments)
-
-
-  const [errors, setErrors] = useState({});
-
-  const [input, setInput] = useState({
+  const [errors, setErrors] = useState({}); // Estado para almacenar errores
+  const [input, setInput] = useState({ // Estado para los datos del formulario
     image:"",
     name: "",
     height_min: "",
@@ -99,7 +95,7 @@ function Form() {
   const [selectNameState, setSelectNameState] = useState([])
   
   // console.log("input form :",input.temperament)
-
+// Función para manejar cambios en los inputs del formulario
   function handleChange(e){
     setInput({
       ...input,
@@ -110,8 +106,8 @@ function Form() {
       [e.target.name]: e.target.value
     }))
   }
-
-  function handleSelect(e){
+// Función para manejar la selección de temperamentos en el formulario
+function handleSelect(e) {
 
     if(input.temperament.includes(e.target.value)) return
 
@@ -126,12 +122,14 @@ function Form() {
     setSelectNameState([...selectNameState, temperamentos.find(e => e.id === parseInt(selectName))])
   }
 
-  function handleSubmit(e){
+  // Función para manejar el envío del formulario
+  function handleSubmit(e) {
     e.preventDefault();
-    if(!errors.name && !errors.height_min && !errors.height_max &&!errors.weight_min && !errors.weight_max) {
+    // Comprobar si hay errores antes de enviar los datos
+    if (!errors.name && !errors.height_min && !errors.height_max && !errors.weight_min && !errors.weight_max) {
       try {
-        dispatch(dogPost(input))
-        setInput({
+        dispatch(dogPost(input)); // Enviar los datos del perro al servidor
+        setInput({ // Restablecer los valores de los campos del formulario
           image:"",
           name: "",
           height_min: "",
@@ -150,7 +148,8 @@ function Form() {
   }
 
 
-  function handleDelete(e){
+ // Función para eliminar un temperamento seleccionado
+ function handleDelete(e) {
     setInput({...input, temperament : input.temperament.filter(t => t !== e.target.value)})
     setSelectNameState(selectNameState.filter(t => t.id !== parseInt(e.target.value)))
   }
@@ -277,4 +276,4 @@ function Form() {
   )
 }
 
-export default Form
+export default Form;
