@@ -1,19 +1,15 @@
-//import React from 'react';
-import './Loader.css'
+import './Loader.css';
 
+// Componente Loader: muestra una serie de tarjetas simulando la carga
 function Loader() {
-  return(
+  return (
     <div className='loader'>
-      <div className='card_loading'></div>
-      <div className='card_loading'></div>
-      <div className='card_loading'></div>
-      <div className='card_loading'></div>
-      <div className='card_loading'></div>
-      <div className='card_loading'></div>
-      <div className='card_loading'></div>
-      <div className='card_loading'></div>
+      {/* Tarjetas de carga */}
+      {[...Array(8)].map((_, index) => (
+        <div key={index} className='card_loading'></div>
+      ))}
     </div>
-  )
+  );
 }
 
-export default Loader
+export default Loader;
