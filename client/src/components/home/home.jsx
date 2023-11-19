@@ -1,24 +1,25 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Header from '../Header/Header';
 import AllCards from './AllCards/AllCards';
 import ButtonCreateDog from './ButtonCreateDog/ButtonCreateDog';
-import Filtros from './Filter/Filtros'
+import Filtros from './Filter/Filtros';
 import Footer from '../Footer/Footer';
 import { useDispatch } from 'react-redux';
 import { orderByName, orderByWeight } from '../../Redux/actions/actions';
 import './home.module.css';
 
 function Home() {
-
   const dispatch = useDispatch();
 
-  function handleChange(e){
+  // Maneja el cambio en el selector de ordenamiento
+  function handleChange(e) {
     const value = e.target.value;
-    if(value === "name_asc" || value === "name_des") {
-      dispatch(orderByName(value))
+    // Envía acciones de ordenamiento basadas en la opción seleccionada
+    if (value === 'name_asc' || value === 'name_des') {
+      dispatch(orderByName(value));
     } 
-    if(value === "peso_asc" || value === "peso_des") {
-      dispatch(orderByWeight(value))
+    if (value === 'peso_asc' || value === 'peso_des') {
+      dispatch(orderByWeight(value));
     }
   }
 
@@ -28,15 +29,17 @@ function Home() {
   const indexOfLastDog = currentPage * dogsPerPage;
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
   
-
   return (
     <div className="home">
       <Header />
       <div className='home_options'>
+        {/* Botón para crear un nuevo perro */}
         <ButtonCreateDog />
         <div className='div_filtro_ordernamineto'>
+          {/* Componente para filtrar y ordenar */}
           <Filtros currentPage={currentPage} setCurrentPage={setCurrentPage} />
           <div className='div_ordernamiento'>
+            {/* Selector de ordenamiento */}
             <span className='ordenar_text'>Ordernar por :</span>
             <select className='select_ordernamiento' onChange={handleChange}>
               <option className='option_name' value="name_asc">Nombre (asc)</option>
@@ -47,6 +50,7 @@ function Home() {
           </div>
         </div>
       </div>
+      {/* Componente que muestra las cartas de los perros */}
       <AllCards 
         currentPage={currentPage} 
         setCurrentPage={setCurrentPage} 
