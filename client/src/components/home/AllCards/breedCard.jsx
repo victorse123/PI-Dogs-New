@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import { container, leftPanel, midPanel, profileImg, wrapper, subTitleBox, subTitle, title, weightText, mainBtn } from './breedCard.module.css';
 import placeholderImg from '../../../images/profileHolder.png'
 import { Link } from "react-router-dom";

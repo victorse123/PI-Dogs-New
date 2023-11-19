@@ -1,39 +1,31 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {getDogs} from '../../../Redux/actions/actions';
-import Card from "./Card/Card";
-import {Link} from 'react-router-dom';
+import { getDogs } from '../../../Redux/actions/actions';
+import Card from './Card/Card';
+import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import Pagination from '..//Pagination/Pagination';
 import './AllCards.css';
 
-function AllCards({currentPage, setCurrentPage, dogsPerPage, indexOfFirstDog, indexOfLastDog}) {
-
+function AllCards({ currentPage, setCurrentPage, dogsPerPage, indexOfFirstDog, indexOfLastDog }) {
   const dispatch = useDispatch();
   const dogs = useSelector(state => state.dogs);
   
+  // Obtiene los perros al cargar el componente
   useEffect(() => {
-    dispatch(getDogs())
-  }, [dispatch])
+    dispatch(getDogs());
+  }, [dispatch]);
 
-  // console.log(currentPage)
-  // console.log(setCurrentPage)
+  // Función para manejar el cambio de página
+  const paginate = (page) => {
+    setCurrentPage(page);
+  };
 
-  // ------ PAGINADO ------
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [dogsPerPage] = useState(8);
-
-  // const indexOfLastDog = currentPage * dogsPerPage;
-  // const indexOfFirstDog = indexOfLastDog - dogsPerPage;
-  const CurrentDog = dogs.slice(indexOfFirstDog, indexOfLastDog)
-  const paginate =(page) => {
-    setCurrentPage(page)
-  }
-
-  // ------ CARDS ------
-  function cards() {
+  // Genera las tarjetas para mostrar los perros
+  function generateCards() {
     return (
-      CurrentDog.map((dog, i) => (
+      // Mapea los perros actuales y crea una tarjeta para cada uno
+      dogs.slice(indexOfFirstDog, indexOfLastDog).map((dog, i) => (
         <Link to={`/home/${dog.id}`} key={i} className="link_all_cards">
           <Card 
             image={dog.image} 
@@ -44,14 +36,14 @@ function AllCards({currentPage, setCurrentPage, dogsPerPage, indexOfFirstDog, in
           /> 
         </Link>
       ))
-    )
+    );
   }
 
-  // ------ return component (renderizado) ------
-  return(
+  // Renderiza las tarjetas o muestra un loader si no hay datos
+  return (
     <div className='AllCards_component'>
       <div className='AllCards'>
-        {dogs.length !== 0 ? cards() : <Loader />}
+        {dogs.length !== 0 ? generateCards() : <Loader />}
       </div>
       <Pagination 
         dogsPerPage={dogsPerPage} 
@@ -61,7 +53,7 @@ function AllCards({currentPage, setCurrentPage, dogsPerPage, indexOfFirstDog, in
         setCurrentPage={setCurrentPage}
       />
     </div>
-  )
+  );
 }
 
 export default AllCards;
