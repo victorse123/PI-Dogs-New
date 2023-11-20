@@ -3,9 +3,9 @@
 import s from "./LandingPage.module.css";
 import {Link} from "react-router-dom";
 import Footer from "../Footer/Footer";
-import Dogs from "../../images/hero-desktop.png";
-import hero_desktop_responsive from "../../images/hero-desktop-responsive.png";
-import hero_mobile from "../../images/hero-mobile.png";
+import Dogs from "../../images/dogs.png";
+import hero_desktop_responsive from "../../images/dogs2.png";
+import hero_mobile from "../../images/dogs3.png";
 // import hero_desktop_responsive from "../../images/hero-desktop-responsive.png";
 import arrow from "../../images/Arrow.png";
 // ----- icons -----

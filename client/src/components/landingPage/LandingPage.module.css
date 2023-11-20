@@ -95,7 +95,7 @@ header {
   }
   
   .main_right {
-    max-width: 590px;
+    max-width: 700px;
     margin-right: 14px;
   }
   
@@ -186,7 +186,7 @@ header {
       display: block;
     }
     .main_left {
-      max-width: 350px;
+      max-width: 150px;
       display: flex;
       flex-direction: column;
       align-items: center;
