@@ -29,7 +29,7 @@ function LandingPage() {
       <main>
         <div className={s.main_left}>
           <h1 className={s.titulo}>No hace falta una excusa para querer un <span className={s.titulo_perro}>Perro</span></h1>
-          <p className={s.sub_titulo}>Una app creada para conocer aspectos importantes de nuestros cuadrupedos.</p>
+          <p className={s.sub_titulo}>Una app creada para conocer aspectos importantes de nuestros amigos.</p>
           <Link to="/home" className={s.acceder_grande}>Ingresar<img className={s.arrow} src={arrow} alt="arrow" /></Link>
         </div>
 
