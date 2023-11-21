@@ -1,0 +1,11 @@
+.about {
+    background: linear-gradient(180deg, #de9542 0, #f3f5f5);
+    border: none;
+    border-radius: 9px;
+    box-shadow: inset 0 0 2px #d6850b;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px; /* Tamaño de fuente  */
+    padding: 20px; /* Espaciado interior */
+    margin: 20px; /* Márgenes alrededor  */
+  }

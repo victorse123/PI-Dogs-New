@@ -21,7 +21,7 @@ function SearchBar() {
   }
 
   // Función para limpiar el campo de búsqueda
-  function handleClick() {
+  function onSearch() {
     setNameDog('');
   }
 
@@ -42,7 +42,7 @@ function SearchBar() {
         {/* Botón para limpiar el campo de búsqueda */}
         <button
           className={nameDog.length > 0 ? "cleaner active" : "cleaner"}
-          onClick={handleClick}
+          onClick={() => onSearch()}
         >
           x
         </button>
