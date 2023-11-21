@@ -1,65 +1,67 @@
-const { Dogs, Temperaments } = require('../db');
+// const { Dog, Temperaments } = require('../db')
 
-const postDogs = async (req, res) => {
-    const { image, name, height_min, height_max, weight_min, weight_max, life_span, temperament } = req.body;
+// const postDogs = async ({image, name, height_min, height_max, weight_min, weight_max, life_span_min, life_span_max,
+//     temperament}) => {
+//         if(image&&name&&height_max&&height_min&&weight_max&&weight_min&&life_span_max&&life_span_min&&temperament){
+//             const [ dogNuevo, create ] = await Dog.findOrCreate({
+                
+//                 where: { image, 
+//                     name,
+//                     height_min,
+//                     height_max,
+//                     weight_min,
+//                     weight_max,
+//                     life_span_min,
+//                     life_span_max,
+//                     include: [
+//                         {
+//                             model: Temperaments,
+//                             where: { name: temperament },
+//                         }
+//                     ]
+//                 }})
+//                 if(!create){return `el Dog ${name} ya existe`}
+//                 else{ return `se creo correctamente ${dogNuevo}`}
+//             }}
+// module.exports = postDogs
 
+const { Dog, Temperaments } = require('../db');
+
+const postDogs = async ({ image, name, height_min, height_max, weight_min, weight_max, life_span_min, life_span_max, temperament }) => {
+  if (image && name && height_max && height_min && weight_max && weight_min && life_span_max && life_span_min && temperament) {
     try {
-        // Validación del formato del campo "temperament" usando expresión regular
-        const isValidTemperament = /^[a-zA-Z]+(?:,[a-zA-Z]+)*$/.test(temperament);
+      const temperamentFound = await Temperaments.findOne({ where: { name: temperament } });
 
-        // Constantes para mensajes
-        const successMessage = 'Se agregó con éxito a ';
-        const errorMessage = {
-            invalidData: 'Datos inválidos o faltantes.',
-            duplicateDog: 'Ya existe un perro con estos datos.',
-            validationError: 'Error de validación de datos.',
-            uniqueConstraintError: 'Ya existe un perro con este nombre.',
-            serverError: 'Error interno del servidor.'
-        };
+      if (!temperamentFound) {
+        return { error: `El temperamento '${temperament}' no existe en la base de datos.` };
+      }
 
-        if (
-            image &&
-            name &&
-            typeof height_min === 'number' &&
-            typeof height_max === 'number' &&
-            typeof weight_min === 'number' &&
-            typeof weight_max === 'number' &&
-            typeof life_span === 'string' &&
-            isValidTemperament
-        ) {
-            const [dogs, created] = await Dog.findOrCreate({
-                where: {
-                    image,
-                    name,
-                    height_min,
-                    height_max,
-                    weight_min,
-                    weight_max,
-                    life_span,
-                    temperament,
-                },
-            });
+      const [dogNuevo, create] = await Dog.findOrCreate({
+        where: { 
+          image,
+          name,
+          height_min,
+          height_max,
+          weight_min,
+          weight_max,
+          life_span_min,
+          life_span_max,
+        },
+      });
 
-            if (created) {
-                console.log('Perro creado:', dog.name);
-                return res.status(200).json(successMessage + dog.name);
-            } else {
-                return res.status(400).json({ message: errorMessage.duplicateDog });
-            }
-        } else {
-            return res.status(400).json({ message: errorMessage.invalidData });
-        }
+      await dogNuevo.setTemperaments(temperamentFound);
+
+      if (!create) {
+        return `El perro ${name} ya existe.`;
+      } else {
+        return `Se creó correctamente el perro ${dogNuevo.name}.`;
+      }
     } catch (error) {
-        // Manejo de errores específicos
-        if (error.name === 'SequelizeValidationError') {
-            return res.status(400).json({ message: errorMessage.validationError });
-        } else if (error.name === 'SequelizeUniqueConstraintError') {
-            return res.status(400).json({ message: errorMessage.uniqueConstraintError });
-        } else {
-            return res.status(500).json({ message: errorMessage.serverError });
-        }
+      return { error: 'Hubo un error al procesar la solicitud.' };
     }
+  } else {
+    return { error: 'Faltan datos obligatorios para crear el perro.' };
+  }
 };
 
 module.exports = postDogs;
-
