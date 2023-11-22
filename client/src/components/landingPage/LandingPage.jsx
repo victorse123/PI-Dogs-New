@@ -3,6 +3,7 @@
 import s from "./LandingPage.module.css";
 import {Link} from "react-router-dom";
 import Footer from "../Footer/Footer";
+import PATHROUTES from "..//..//helpers/pathRoutes.helper";
 import Dogs from "../../images/dogs.png";
 import hero_desktop_responsive from "../../images/dogs2.png";
 import hero_mobile from "../../images/dogs3.png";
@@ -66,6 +67,11 @@ function LandingPage() {
         <div className={s.funciones}>
           <img className={s.icon} src={icon5} alt="icon" />
           <p className={s.funcion_desc}>A donde tu vayas, llevalos</p>
+        </div>
+
+        <div className={s.funciones}>
+          <img className={s.icon} src={icon5} alt="icon" />
+          <p className={s.funcion_desc}>Acerca de mí</p>
         </div>
       </div>
       <Footer />
