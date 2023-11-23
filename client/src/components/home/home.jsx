@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import Header from '../Header/Header';
 import AllCards from './AllCards/AllCards';
-import SearchBar from '../Header/SearchBar/SearchBar';
+//import SearchBar from '../Header/SearchBar/SearchBar';
 import ButtonCreateDog from './ButtonCreateDog/ButtonCreateDog';
 import Filtros from './Filter/Filtros';
 import Footer from '../Footer/Footer';
 import { useDispatch } from 'react-redux';
 import { orderByName, orderByWeight } from '../../Redux/actions/actions';
-import styles from './home.module.css';
+import {} from './home.css';
 
 function Home() {
   const dispatch = useDispatch();
@@ -60,9 +60,7 @@ function Home() {
         indexOfLastDog={indexOfLastDog}
       />
       <Footer />
-      <div className={styles.search}>
-        <SearchBar onSearch={onSearch} />
-      </div>
+     
     </div>
     
   )

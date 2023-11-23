@@ -1,7 +1,9 @@
+/* eslint-disable no-redeclare */
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dogPost, getTemperament } from '../../../Redux/actions/actions';
-import './Form.module.css';
+import './Form.css';
 
 // Función para validar los campos del formulario
 function validar(input) {
@@ -150,8 +152,21 @@ function handleSelect(e) {
 
  // Función para eliminar un temperamento seleccionado
  function handleDelete(e) {
-    setInput({...input, temperament : input.temperament.filter(t => t !== e.target.value)})
-    setSelectNameState(selectNameState.filter(t => t.id !== parseInt(e.target.value)))
+    // setInput({...input, temperament : input.temperament.filter(t => t !== e.target.value)})
+    // setSelectNameState(selectNameState.filter(t => t.id !== parseInt(e.target.value)))
+    // setSelectNameState(selectNameState.filter(t => t.id && t.id !== parseInt(e.target.value)));
+    const selectedValue = parseInt(e.target.value);
+  
+    if (!isNaN(selectedValue)) {
+      setInput({
+        ...input,
+        temperament: input.temperament.filter(t => t !== e.target.value)
+      });
+  
+      setSelectNameState(prevState => prevState.filter(t => t.id !== selectedValue));
+    } else {
+      console.error("Invalid value for deletion.");
+    }
   }
 
 
@@ -161,6 +176,15 @@ function handleSelect(e) {
       <p className='datos_obligatorios'>Datos con * obligatorios</p>
 
       <form className='form' action="" onSubmit={handleSubmit}>
+
+        {/* ---- INPUT IMAGE ---- */}
+        <div>
+          <label>Imagen</label>
+          <div className= "div_input">
+            <input className='form_input' placeholder='Url de la imagen' onChange={handleChange} name="image" value={input.image}/>
+          </div>
+        </div>
+
         {/* ---- INPUT NAME ---- */}
         <div>
           <div>
@@ -169,14 +193,6 @@ function handleSelect(e) {
               <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="name" value={input.name}/>
             </div>
             {errors.name && (<span className='dato_incorrecto'>{errors.name}</span>)}
-          </div>
-        </div>
-
-        {/* ---- INPUT IMAGE ---- */}
-        <div>
-          <label>Imagen</label>
-          <div className= "div_input">
-            <input className='form_input' placeholder='Url de la imagen' onChange={handleChange} name="image" value={input.image}/>
           </div>
         </div>
 
@@ -192,7 +208,7 @@ function handleSelect(e) {
           </div>
 
           <div className='min'>
-            <label className='label_min'>Peso</label>
+            <label className='label_min'>Altura</label>
             <div className={errors.height_min ? "div_input error" : "div_input"}>
               <input className='form_input max' placeholder='Min' onChange={handleChange} name="height_min" value={input.height_min}/>
               <span className='unidad'>CM</span>
@@ -234,7 +250,7 @@ function handleSelect(e) {
           </div>
 
           <div className='min'>
-            <label className='label_min'>Peso</label>
+            <label className='label_min'>Años de Vida</label>
             <div className={errors.life_span_min ? "div_input error" : "div_input"}>
               <input className='form_input max_years' placeholder='Min' onChange={handleChange} name="life_span_min" value={input.life_span_min}/>
               <span className='unidad'>Años</span>
@@ -256,13 +272,16 @@ function handleSelect(e) {
             </select>
           </div>
           <div className='div_form_final_temps'>
-            <ul className='ul_temp'>
-              {selectNameState.map((e, i) => {
-                return(
-                <li className='li_temp' key={i}>
-                  {e.name}
-                  <button className='delete_temp' type='button' value={e.id} onClick={handleDelete}>x</button>
-                </li>
+  <ul className='ul_temp'>
+    {selectNameState.map((e, i) => {
+      const dogName = e && e.name ? e.name : '';
+      const dogId = e && e.id ? e.id : '';
+
+      return (
+        <li className='li_temp' key={i}>
+          {dogName}
+          <button className='delete_temp' type='button' value={dogId} onClick={handleDelete}>x</button>
+        </li>
                 )
               })}
             </ul>
@@ -276,4 +295,4 @@ function handleSelect(e) {
   )
 }
 
-export default Form;
+export default Form

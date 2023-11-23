@@ -7,8 +7,8 @@ header {
     justify-content: space-between;
     align-items: center;
     max-width: 1110px;
-    margin: 0 auto;
-    padding: 34px 30px;
+    margin: 18px 190px;
+    padding: 34px 5px;
   }
   .logo {
     font-family: 'Nunito';
@@ -38,14 +38,14 @@ header {
   main {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 200px;
     max-width: 1110px;
-    margin: 0 auto;
-    padding: 0 30px;
+    margin: 0 100px;
+    padding: 0 0px;
   }
   .main_left {
-    max-width: 350px;
-    margin-top: 200px;
+    max-width: 450px;
+    margin-top: 300px;
   }
   .titulo {
     font-family: 'Nunito';
@@ -95,15 +95,15 @@ header {
   }
   
   .main_right {
-    max-width: 700px;
-    margin-right: 14px;
+    max-width: 390px;
+    margin-right: 40px;
   }
   
   .div_functions {
     display: flex;
     justify-content: space-between;
     max-width: 1110px;
-    margin: 67px auto 50px auto;
+    margin: 27px auto 50px auto;
     padding: 0 30px;
   }
   .funciones {
@@ -113,7 +113,7 @@ header {
     text-align: center;
     flex-direction: column;
     gap: 5px;
-    height: 140px;
+    height: 100px;
     width: 140px;
     padding: 18px 0 22px;
     border-radius: 12px;

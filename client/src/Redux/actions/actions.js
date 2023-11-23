@@ -59,20 +59,28 @@ export const dogPost = (payload) => {
 };
 
 // Función asíncrona para obtener los temperamentos de los perros
-export const getTemperament = () => {
-  return async function(dispatch) {
-    try {
-      let temperaments = (await axios("http://localhost:3001/temperaments")).data;
-      let allTemps = temperaments.map(e => e);
-      return dispatch({
-        type: GET_TEMPERAMENT,
-        payload: allTemps
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
+// export const getTemperament = () => {
+//   return async function(dispatch) {
+//     try {
+//       let temperaments = (await axios("http://localhost:3001/temperaments")).data;
+//       let allTemps = temperaments.map(e => e);
+//       return dispatch({
+//         type: GET_TEMPERAMENT,
+//         payload: allTemps
+//       });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
+
+export const getTemperament= ()=>{
+  return async function(dispatch){
+const { data } = await axios('http://localhost:3001/temperaments')
+dispatch({type: GET_TEMPERAMENT, payload: data})
+
+}
+}
 
 // Función asíncrona para buscar perros por raza
 export const searchDogs = (raza) => {

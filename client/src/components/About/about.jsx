@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import styles from './About.module.css';
+import styles from './about.module.css';
 
 const About = () => {
   return (
