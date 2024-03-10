@@ -34,8 +34,6 @@ temperaments(sequelize);
 // Para relacionarlos hacemos un destructuring
 const { Dog, Temperaments } = sequelize.models;
 
-
-
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 Dog.belongsToMany(Temperaments, { through: 'dog_temperaments', });

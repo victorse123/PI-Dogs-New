@@ -1,8 +1,8 @@
 // Importaciones necesarias
 //import React from 'react';
-import Header from '../Header/Header';
+import Header from '..//header/header';
 import Form from './Form/Form';
-import Footer from '../Footer/Footer';
+import Footer from '..//footer/footer';
 import './NewDog.module.css'; // Estilos del componente
 
 function NewDog() {

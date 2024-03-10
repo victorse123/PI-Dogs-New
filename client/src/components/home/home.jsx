@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Header from '../Header/Header';
+import Header from '../header/header';
 import AllCards from './AllCards/AllCards';
 //import SearchBar from '../Header/SearchBar/SearchBar';
 import ButtonCreateDog from './ButtonCreateDog/ButtonCreateDog';
 import Filtros from './Filter/Filtros';
-import Footer from '../Footer/Footer';
+import Footer from '..//footer/footer';
 import { useDispatch } from 'react-redux';
 import { orderByName, orderByWeight } from '../../Redux/actions/actions';
 import {} from './home.css';

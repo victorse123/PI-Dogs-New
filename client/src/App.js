@@ -114,14 +114,14 @@
 
 //import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import LandingPage from './/components/LandingPage/LandingPage';
-import Home from './/components/home/Home';
+import LandingPage from './components/landingPage/LandingPage';
+import Home from './components/home/home';
 import About from './/components/About/about';
 import NewDog from './/components/NewDog/NewDog';
 import Filtros from './components/home/Filter/Filtros';
 import FiltroTemperamento from './components/home/Filter/FiltroTemperamento';
-import SearchBar from './components/Header/SearchBar/SearchBar';
-import Details from './/components/Details/Details';
+import SearchBar from './components/header/SearchBar/SearchBar';
+import Details from './components/Details/Details';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';

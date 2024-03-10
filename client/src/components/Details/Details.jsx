@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux';
-import Header from '../Header/Header';
+import Header from '..//header/header';
 import DogDetail from './DogDetail/DogDetail';
 import { getDetail } from '../../Redux/actions/actions';
-import Footer from '../Footer/Footer';
+import Footer from '..//footer/footer';
 import './Details.css';
 
 function Details(props) {
