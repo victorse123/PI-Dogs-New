@@ -1,6 +1,3 @@
-
-;
-
 const getDogs = require('./getDogs');
 
 
